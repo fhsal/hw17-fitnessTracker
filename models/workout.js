@@ -1,22 +1,71 @@
+// const mongoose = require("mongoose");
+
+// const Schema = mongoose.Schema;
+
+// let workoutSchema = new Schema({
+//   day: {
+//     type: Date,
+//     default: () => new Date(),
+//   },
+//   exercises: [
+//     { type: { type: String, trim: true } },
+//     { name: { type: String, trim: true } },
+//     { weight: { type: Number, default: 0 } },
+//     { reps: { type: Number, default: 0 } },
+//     { sets: { type: Number, default: 0 } },
+//     { duration: { type: Number } },
+//     { distance: { type: Number, default: 0 } },
+//   ],
+// });
+
+// const Workout = mongoose.model("workout", workoutSchema);
+
+// module.exports = Workout;
+
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-let workoutSchema = new Schema({
+const WorkoutSchema = new Schema({
   day: {
     type: Date,
-    default: Date.now(),
+    default: Date.now,
   },
   exercises: [
-    { type: { type: String, trim: true, required: "Exercise type?" } },
-    { name: { type: String, trim: true, required: "Exercise name?" } },
-    { weight: { type: Number } },
-    { duration: { type: Number, required: "Duration (minutes) ?" } },
-    { reps: { type: Number } },
-    { distance: { type: Number } },
+    {
+      type: {
+        type: String,
+        trim: true,
+      },
+      name: {
+        type: String,
+        trim: true,
+      },
+      duration: Number,
+      weight: {
+        type: Number,
+        default: 0,
+      },
+      reps: {
+        type: Number,
+        default: 0,
+      },
+      sets: {
+        type: Number,
+        default: 0,
+      },
+      distance: {
+        type: Number,
+        default: 0,
+      },
+    },
   ],
+  totalDuration: {
+    type: Number,
+    default: 0,
+  },
 });
 
-const Workout = mongoose.model("Workout", workoutSchema);
+const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;
