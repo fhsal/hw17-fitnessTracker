@@ -2,6 +2,8 @@ const Workout = require("../models/workout");
 
 var router = require("express").Router();
 
+// route to retrieve workouts, use on home page load 
+
 router.get("/api/workouts", function (req, res) {
   console.log("hitting get workouts route ");
 
@@ -11,6 +13,8 @@ router.get("/api/workouts", function (req, res) {
       res.json(err);
     });
 });
+
+// route to create new workout 
 
 router.post("/api/workouts", function (req, res) {
   console.log("hitting post workouts route ");
@@ -22,6 +26,8 @@ router.post("/api/workouts", function (req, res) {
       res.json(err);
     });
 });
+
+// route to get all workouts for stats page
 
 router.get("/api/workouts/range", function (req, res) {
   console.log("hitting stats route ");
@@ -41,6 +47,8 @@ router.post("/api/workouts/range", function (req, res) {
       res.json(err);
     });
 });
+
+// route to add an individual exercise 
 
 router.put("/api/workouts/:id", ({ body, params }, res) => {
   Workout.findByIdAndUpdate(
