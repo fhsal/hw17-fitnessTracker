@@ -43,11 +43,7 @@ router.get("/api/workouts/range", function (req, res) {
 // route to add an individual exercise
 
 router.put("/api/workouts/:id", ({ body, params }, res) => {
-  Workout.findByIdAndUpdate(
-    params.id,
-    { $push: { exercises: body } },
-    { new: true, runValidators: true }
-  )
+  Workout.findByIdAndUpdate(params.id, { $push: { exercises: body } })
     .then((data) => res.json(data))
     .catch((err) => {
       res.json(err);

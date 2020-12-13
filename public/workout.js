@@ -4,18 +4,6 @@ async function initWorkout() {
 
   localStorage.schedule = JSON.stringify(lastWorkout);
 
-  // let total = 0;
-
-  // lastWorkout.forEach((e) => {
-  //   total += e.duration;
-  // });
-  // console.log(total);
-
-  // exercises.forEach((e) => {
-  //   total += e.duration;
-  // });
-  // console.log(total);
-
   if (lastWorkout) {
     document
       .querySelector("a[href='/exercise?']")
